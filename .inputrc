@@ -1,0 +1,31 @@
+# Clink configuration
+# See https://chrisant996.github.io/clink/clink.html#init-file
+
+# GNU Readline compatible
+set colored-stats                 on   # Turn on completion colors.
+set colored-completion-prefix     on   # Color the typed completion prefix.
+
+$if clink
+set mark-symlinked-directories                      on
+set visible-stats                                   off
+set search-ignore-case                              on   # Case insensitive history searches.
+set completion-auto-query-items                     on   # Prompt before showing completions if they'll exceed half the screen.
+set history-point-at-end-of-anchored-search         on
+set menu-complete-wraparound                        off
+
+
+# The following key bindings are for emacs mode.
+set keymap emacs
+
+"\e[27;8;72~":      clink-popup-show-help           # Alt-Ctrl-Shift-H
+
+# Completion key bindings.
+"\t":               old-menu-complete               # Tab
+"\e[Z":             old-menu-complete-backward      # Shift-Tab
+"\e[27;5;32~":      clink-select-complete           # Ctrl-Space
+
+# Some key bindings for interrogating the Readline configuration.
+"\C-x\C-f":         dump-functions                  # Ctrl-X, Ctrl-F
+"\C-x\C-m":         dump-macros                     # Ctrl-X, Ctrl-M
+"\C-x\C-v":         dump-variables                  # Ctrl-X, Ctrl-V
+$endif
